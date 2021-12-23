@@ -1,0 +1,251 @@
+html{
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+body{
+  margin: 0;
+  height: 100vh;
+  font-size: 1.6rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root{
+  height: 100%;
+}
+
+.grid{
+  display: grid;
+  grid-template-areas:
+      'header'
+      'main'
+      'footer';
+  grid-template-columns: 1fr;
+  grid-template-rows: 8rem 1fr 5rem;
+  height: 100%;
+}
+
+header{
+  grid-area: header;
+  background-color: #060606;
+}
+
+main{
+  grid-area: main;
+  padding: 10px;
+}
+
+footer{
+  grid-area: footer;
+  background-color: #060606;
+  color: #FBFBFB;
+}
+
+/*Zajednicko (Common)*/
+h1{
+  font-size: 2rem;
+  padding: 1rem 0;
+  inline-size: 27rem;
+}
+
+h2{
+  font-size: 1.8rem;
+  padding: 1rem 0;
+  inline-size: 27rem;
+  color: #4806EC;
+  text-align: center;
+}
+
+h2:hover{
+  color: #FF5733;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  color: #FF5733;
+}
+
+header a{
+  color: #FBFBFB;
+  padding: 10px;
+}
+
+.badge{
+  background-color: #0787EA;
+  color: #FBFBFB;
+  border-radius: 50%;
+  padding: 0rem 0.5rem;
+  font-size: 1.5rem;
+  margin-left: 0.1rem;
+
+}
+
+a.eName{
+  font-size: 36px;
+  font-weight: bold;
+  color: #FBFBFB;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  
+}
+
+li{
+  margin-top: 1rem;
+}
+
+input,
+select,
+textarea,
+button{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  font-size: 1.6rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button:hover{
+  background-color: #f8f8f8;
+  cursor: pointer;
+  border: 0.1rem #404040 solid;
+}
+
+button.primary{
+  background-color: #0787EA;
+  color: #fff;
+}
+
+button.block{
+  width: 100%;
+}
+
+button.block:hover{
+  background-color: #06EA47;
+}
+
+select:hover{
+  border: 0.1rem #404040 solid;
+}
+
+.row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.row.center{
+  justify-content: center;
+}
+
+.row.top{
+  align-items: flex-start;
+}
+
+.col-1{
+  flex: 1 1 25rem;
+}
+
+.col-2{
+  flex: 1 1 37rem;
+  margin-right: 5rem;
+}
+
+.min-30{
+  width: 40%;
+}
+
+/*Slika (Image)*/
+img{
+  border-radius: 0.5rem;
+}
+
+img.small{
+  max-width: 5rem;
+  width: 100%;
+}
+
+img.medium{
+  max-width: 29rem;
+  width: 100%;
+  max-height: 30rem;
+}
+
+img.large{
+  max-width: 50rem;
+  width: 100%;
+  max-height: 48rem;
+}
+
+/*Proizvodi (Products)*/
+.product{
+  border:  0.1rem #B0B0AF solid;
+  border-radius: 0.6rem;
+  background-color: #f6f6f6f6;
+  margin: 1rem;
+}
+
+.product-body{
+  padding: 1rem;
+}
+
+.product-body > *{
+  margin-bottom: 0.5rem;
+}
+
+.price{
+  font-size: 1.8rem;
+}
+
+/*Rating*/
+.rating span{
+  color: #f0c040;
+  margin: 0.1rem;
+}
+
+.rating span:last-child{
+  color: #0C0C0C;
+  font-size: 1.5rem;
+}
+
+
+
+p.descrip{
+  white-space: pre-wrap;
+}
+
+/*Alert*/
+  /*Dostupnost (Availability)*/
+.success{
+  color: #20a020;
+}
+.danger{
+  color: #F32513;
+}
+
+.alert{
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border-radius: 0.5rem;
+}
+
+.alert-info{
+  color: #0787EA;
+  background-color: #ffe0e0;
+}
+
+.alert-danger{
+  color: #F32513;
+  background-color: #ffe0e0;
+}
+
