@@ -1,4 +1,20 @@
+import bcrypt from "bcryptjs";
+
 const data = {
+    users:[
+        {
+            name: 'Ivan',
+            email: 'gasevic_ivan@yahoo.com',
+            password: bcrypt.hashSync('2605', 8),
+            isAdmin: true,
+        },
+        {
+            name: 'Korisnik',
+            email: 'user@example.com',
+            password: bcrypt.hashSync('1234', 8),
+            isAdmin: false,
+        }
+    ],
     products:[
         {
             _id: '1',
@@ -41,7 +57,7 @@ const data = {
             name: 'Intel Core I3 10100F + NVidia GeForce 1650 4GB DDR6',
             category: 'PC',
             image: '/images/pc4.jpg',
-            price: '99.00',
+            price: '1099.00',
             countInStock: 15,
             brand: 'IT Shop',
             rating: 4.5,
