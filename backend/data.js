@@ -1,7 +1,8 @@
 import bcrypt from "bcryptjs";
 
 const data = {
-    users:[
+        users:[
+    
         {
             name: 'Ivan',
             email: 'gasevic_ivan@yahoo.com',
@@ -13,8 +14,7 @@ const data = {
             email: 'user@example.com',
             password: bcrypt.hashSync('1234', 8),
             isAdmin: false,
-        }
-    ],
+        }],
     products:[
         {
             _id: '1',
@@ -89,6 +89,7 @@ const data = {
             description: 'Procesor: Intel Core i5 10400F 2,9GHz Matična ploča: H410M, Grafika: nVidia GeForce GTX1050TI 4GB Ram: 8GB DDR4 SSD: 256GB Kućište: Inter-Tech B-02 RGB Napajanje: 620W Ostalo: DP i HDMI. Garancija: 24 mj',
         },   
     ],
+    
 };
 
 export default data;

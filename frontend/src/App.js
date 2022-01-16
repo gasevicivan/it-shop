@@ -17,7 +17,7 @@ function App() {
                 </div>
                 <div>
                     <Link to="/signin">Prijava</Link>
-                    <Link to="/cart/:id?">
+                    <Link to="/cart/:id">
                       Korpa
                       {cartItems.length > 0 && (
                         <span className='badge'>{cartItems.length}</span>
