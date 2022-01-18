@@ -39,7 +39,7 @@ const data = {
             description: '\n\nProcesor: Intel Pentium Celeron G5905 3,5 GHz \nMatična ploča: H410M \nGrafika: AMD Radeon RX550 4GB \nRam: 8GB DDR4 \nSSD: M.2 500GB \nKućište: Inter-Tech IT-3306 Cavy \nNapajanje: 620W \nOstalo: DP i HDMI \nGarancija: 2 godine',
         },   
         {
-            name: 'Intel Core I3 10100',
+            name: 'Intel Core I3 10100 + Intel HD Graphics UHD 630',
             category: 'PC',
             image: '/images/pc3.jpg',
             price: '976.00',
@@ -61,7 +61,7 @@ const data = {
             description: '\n\nProcesor: AMD Ryzen 9 3900X \nMatična ploča: Asus ROG Strix B550-A Gamming \nRAM: Kingston Fury Beast 64GB (4x16) \nGrafika: MSI GeForce RTX 3060 GAMING X 12GB \nSSD: Samsung 970 EVO Plus NVMe M.2 SSD 500GB x2 \nHDD: WD Gold Enterprise 8TB X 2\n Kućište: Chiftec Rack UNC-411E-B \nNapajanje: Asus ROG Strix 750G \nGarancija: 3 godine',
         },   
         {
-            name: 'AMD Ryzen 7 3700X + Nvidia GeForce RTX2060 6GB DDR6 + POKLON MONITOR',
+            name: 'AMD Ryzen 7 3700X + Nvidia RTX2060 6GB DDR6 + monitor',
             category: 'PC',
             image: '/images/pc5.jpg',
             price: '3626.00',
@@ -72,7 +72,7 @@ const data = {
             description: '\n\nProcesor: AMD Ryzen 7 3700X 3,6 GHz 32MB \nMatična ploča: AMD X570-P \nGrafika: nVidia GeForce 2060 6GB DDR6 \nRam: 16GB 3200 MHz DDR4 (2x8) \nSSD: M.2 NVMe 500 GB \nHDD: 1 TB \nKućište: Gigabyte GB-AC300g \nNapajanje: Inter-Tech Argus 720W \nGarancija: 2 godine',
         },   
         {
-            name: 'AMD Ryzen 3 2200G',
+            name: 'AMD Ryzen 3 2200G + Radeon™ Vega 8 Graphics',
             category: 'PC',
             image: '/images/pc6.jpg',
             price: '849.00',
@@ -83,7 +83,7 @@ const data = {
             description: '\n\nProcesor: AMD Ryzen 3 2200g, 3,5 GHz \nMatična ploča: B450M \nGrafika: Radeon™ Vega 8 Graphics \nRAM: 8GB DDR4 \nSSD:256GB \nKućište: Inter-Tech B-02 RGB\n Napajanje: 620W \nOstalo: DP i HDMI \nGarancija: 2 godine',
         },  
         {
-            name: 'AMD Athlon 220GE',
+            name: 'AMD Athlon 220GE + Radeon™ Vega 3 Graphics',
             category: 'PC',
             image: '/images/pc7.jpg',
             price: '559.00',
@@ -94,7 +94,7 @@ const data = {
             description: '\n\nProcesor: AMD Athlon 220GE 3,4 GHz \nMatična ploča: Intel A320 \nGrafika: Radeon™ Vega 3 Graphics \nRAM: 8 GB DDR4 \nSSD: 240 GB, Kućište: Inter-Tech \nNapajanje: 500W, \nGarancija: 2 godine',
         },  
         {
-            name: 'Intel Core I5 11400 + Nvidia GeForce GTX1660 6GB DDR6 + poklon slušalice',
+            name: 'Intel I5 11400 + Nvidia GeForce GTX1660 6GB DDR6 + slušalice',
             category: 'PC',
             image: '/images/pc8.jpg',
             price: '2599.00',
