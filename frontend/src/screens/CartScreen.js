@@ -26,7 +26,7 @@ export default function CartScreen(props) {
 
     let navigate = useNavigate();
     const checkoutHandler = () =>{
-        navigate('/signin?redirect=shipping');
+        navigate('/shipping');
     }
 
     return (

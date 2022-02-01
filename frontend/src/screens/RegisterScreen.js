@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { signin } from '../actions/userActions';
+import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
-export default function SigninScreen(props) {
+export default function RegisterScreen(props) {
 
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
     let location = useLocation();
     const redirect = location.search
         ? location.search.split('?')[1]
@@ -16,13 +19,19 @@ export default function SigninScreen(props) {
 
    
     
-    const userSignin =  useSelector(state => state.userSignin);
-    const {userInfo, loading, error} = userSignin;
+    const userRegister =  useSelector(state => state.userRegister);
+    const {userInfo, loading, error} = userRegister;
 
     const dispatch = useDispatch();
     const submitHandler = (e) =>{
         e.preventDefault();
-        dispatch(signin(email, password));
+        if(password !== confirmPassword){
+            alert('Lozinke se razlikuju. Morate unijeti iste lozinke.');
+        }
+        else{
+           dispatch(register(name, email, password)); 
+        }
+        
     }
 
     const navigate = useNavigate();
@@ -36,10 +45,16 @@ export default function SigninScreen(props) {
         <div>
             <form className='form' onSubmit={submitHandler}>
                 <div>
-                    <h1>Prijavite se na korisnički profil</h1>
+                    <h1>Kreiraj korisnički profil</h1>
                 </div>
                 {loading && <LoadingBox></LoadingBox>}
                 {error && <MessageBox variant='danger'>{error}</MessageBox>}
+                <div>
+                    <label htmlFor='name'>Ime</label>
+                    <input type='text' id='name' placeholder='Unesite ime' required
+                        onChange={ e => setName(e.target.value)}>
+                    </input>
+                </div>
                 <div>
                     <label htmlFor='email'>Email</label>
                     <input type='email' id='email' placeholder='Unesite email' required
@@ -53,13 +68,19 @@ export default function SigninScreen(props) {
                     </input>
                 </div>
                 <div>
+                    <label htmlFor='confirmPassword'>Potvrdite lozinku</label>
+                    <input type='password' id='confirmPassword' placeholder='Ponovo unesite lozinku' required
+                        onChange={ e => setConfirmPassword(e.target.value)}>
+                    </input>
+                </div>
+                <div>
                     <label />
-                    <button className='primary' type='submit'>Prijavite se</button>
+                    <button className='primary' type='submit'>Registrujte se</button>
                 </div>
                 <div>
                     <label />
                     <div>
-                        <Link to={`/register?redirect=${redirect}`}>Niste kreirali korisnički profil? Kreirajte ovdje.</Link>
+                        <Link to={`/signin?redirect=${redirect}`}>Već imate korisnički profil? Prijavite se.</Link>
                     </div>
                 </div>
             </form>

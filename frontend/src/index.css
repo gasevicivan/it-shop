@@ -226,6 +226,11 @@ p.descrip{
 
 /*Alert*/
   /*Dostupnost (Availability)*/
+
+.loading{
+  display: block !important;
+}
+
 .success{
   color: #20a020;
 }
