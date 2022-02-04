@@ -6,6 +6,7 @@ import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import RegisterScreen from './screens/RegisterScreen';
+import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
                   ) : (
                     <Link to="/signin">Prijavite se</Link>
                   )}
-                  <Link to="/cart/:id">
+                  <Link to="/cart">
                       Korpa
                       {cartItems.length > 0 && (
                         <span className='badge'>{cartItems.length}</span>
@@ -51,10 +52,12 @@ function App() {
             </header>
             <main>
               <Routes>
+                <Route path="/cart" element={<CartScreen />}></Route>
                 <Route path="/cart/:id" element={<CartScreen />}></Route>
                 <Route path="/product/:id" element={<ProductScreen />}></Route>
-                <Route path="/register" element={<RegisterScreen />}></Route>
                 <Route path="/signin" element={<SigninScreen />}></Route>
+                <Route path="/register" element={<RegisterScreen />}></Route>
+                <Route path="/shipping" element={<ShippingAddressScreen />}></Route>
                 <Route exact path="/" element={<HomeScreen />}></Route>
               </Routes>
             </main>

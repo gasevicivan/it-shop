@@ -7,8 +7,11 @@ import MessageBox from '../components/MessageBox';
 export default function CartScreen(props) {
     const {id} = useParams();
     const productId = id;
-    let location = useLocation();
-    const qty = location.search? Number(location.search.split('=')[1]): 1;
+    /*const {location} = useLocation();
+    const qty = location.search? Number(location.search.split('=')[1]): 1;*/
+    const { search } = useLocation();
+    const qtyInUrl = new URLSearchParams(search).get('qty');
+    const qty = qtyInUrl ? Number(qtyInUrl) : 1;
 
     const cart = useSelector((state) => state.cart);
     const {cartItems} = cart;
@@ -24,9 +27,9 @@ export default function CartScreen(props) {
         dispatch(removeFromCart(id));
     }
 
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     const checkoutHandler = () =>{
-        navigate('/shipping');
+        navigate('/signin?redirect=/shipping');
     }
 
     return (

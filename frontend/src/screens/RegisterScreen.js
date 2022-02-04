@@ -5,19 +5,22 @@ import { register } from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
-export default function RegisterScreen(props) {
+export default function RegisterScreen() {
+    const navigate = useNavigate();
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    let location = useLocation();
+    /*let location = useLocation();
     const redirect = location.search
         ? location.search.split('?')[1]
-        : '/';
+        : '/';*/
 
-   
+    const { search } = useLocation();
+    const redirectInUrl = new URLSearchParams(search).get('redirect');
+    const redirect = redirectInUrl ? redirectInUrl : '/';
     
     const userRegister =  useSelector(state => state.userRegister);
     const {userInfo, loading, error} = userRegister;
@@ -34,7 +37,7 @@ export default function RegisterScreen(props) {
         
     }
 
-    const navigate = useNavigate();
+    
     useEffect( () =>{
         if(userInfo){
             navigate(redirect);

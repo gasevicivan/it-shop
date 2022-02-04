@@ -125,6 +125,10 @@ button.primary{
   color: #fff;
 }
 
+button.primary:hover{
+  background-color: #20a020;
+}
+
 button.block{
   width: 100%;
 }
@@ -294,4 +298,18 @@ p.descrip{
 
 .dropdown:hover .dropdown-content{
   display: block;
+}
+
+/* Checkout steps*/
+.checkout-steps > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.checkout-steps > div.active{
+  border-top-color: #0787EA;
+  color: #0787EA;
 }
