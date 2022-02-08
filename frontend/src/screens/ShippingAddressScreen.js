@@ -5,7 +5,7 @@ import { saveShippingAddress } from '../actions/cartActions';
 import CheckoutSteps from '../components/CheckoutSteps'
 
 export default function ShippingAddressScreen() {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const userSignin = useSelector(state => state.userSignin);
     const {userInfo} = userSignin;
@@ -22,11 +22,11 @@ export default function ShippingAddressScreen() {
     }*/
     
     //ovo mi u konzoli pravi grešku pri prvom unosu
-    const [fullName, setFullName] = useState(shippingAddress.fullName);
-    const [address, setAddress] = useState(shippingAddress.address);
-    const [city, setCity] = useState(shippingAddress.city);
-    const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-    const [country, setCountry] = useState(shippingAddress.country);
+    const [fullName, setFullName] = useState(shippingAddress.fullName || '');
+    const [address, setAddress] = useState(shippingAddress.address) || '';
+    const [city, setCity] = useState(shippingAddress.city || '');
+    const [postalCode, setPostalCode] = useState(shippingAddress.postalCode || '');
+    const [country, setCountry] = useState(shippingAddress.country || 'Bosna i Hercegovina');
     const dispatch = useDispatch();
 
     
@@ -34,7 +34,6 @@ export default function ShippingAddressScreen() {
         e.preventDefault();
         dispatch(saveShippingAddress({fullName, address, city, postalCode, country}));
         navigate('/payment');
-        //TODO: dispatch save shipping adress action
     }
     return (
         <div>
@@ -96,11 +95,10 @@ export default function ShippingAddressScreen() {
                     <select 
                         type='dropdown' 
                         id='country' 
-                        placeholder='Unesite ime i prezime' 
-                        value={country} 
+                        value={country}
                         onChange={(e) => setCountry(e.target.value)} 
-                        required>
-                            <option value="BIH">Bosna i Hercegovina</option>
+                        >
+                            <option value="Bosna i Hercegovina">Bosna i Hercegovina</option>
                     </select>
                 </div>
 

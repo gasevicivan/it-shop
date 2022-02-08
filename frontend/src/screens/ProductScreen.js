@@ -6,7 +6,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { detailsProduct } from "../actions/productActions";
 
-function ProductScreen(props) {
+function ProductScreen() {
     const dispatch = useDispatch();
     const {id} = useParams();
     const productId = id;

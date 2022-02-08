@@ -6,7 +6,7 @@ body{
   margin: 0;
   height: 100vh;
   font-size: 1.6rem;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family:  'Franklin Gothic','Rockwell', 'Garamond', 'Calibri', 'Futura', 'Helvetica' ;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -59,6 +59,13 @@ h2{
 
 h2:hover{
   color: #FF5733;
+}
+
+h3{
+  font-size: 1.8rem;
+  margin: 0.3rem;
+  margin-left: 0;
+  padding: 0;
 }
 
 a{
@@ -161,8 +168,8 @@ select:hover{
 }
 
 .col-2{
-  flex: 1 1 37rem;
-  margin-right: 5rem;
+  flex: 2 1 50rem;
+  margin-right: 1rem;
 }
 
 .min-30{
@@ -222,8 +229,6 @@ img.large{
   font-size: 1.5rem;
 }
 
-
-
 p.descrip{
   white-space: pre-wrap;
 }
@@ -273,7 +278,6 @@ p.descrip{
 
 .form label{
   margin: 1rem 0;
-  display: block;
 }
 
 /*Dropdown*/

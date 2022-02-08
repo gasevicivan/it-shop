@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { addToCart, removeFromCart } from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
-export default function CartScreen(props) {
+export default function CartScreen() {
     const {id} = useParams();
     const productId = id;
     /*const {location} = useLocation();
@@ -50,7 +50,7 @@ export default function CartScreen(props) {
                                     <div className='min-30'>
                                         <Link to={`/product/${item.product}`}>{item.name}</Link>
                                     </div>
-                                    <div className='space'>
+                                    <div>
                                         <select value={item.qty} onChange=
                                         {(e) => dispatch(addToCart(item.product, Number(e.target.value)))}>
                                              {

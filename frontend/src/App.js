@@ -4,6 +4,8 @@ import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 import { signout } from './actions/userActions';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
+import PaymentMethodScreen from './screens/PaymentMethodScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import ProductScreen from './screens/ProductScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
@@ -58,11 +60,13 @@ function App() {
                 <Route path="/signin" element={<SigninScreen />}></Route>
                 <Route path="/register" element={<RegisterScreen />}></Route>
                 <Route path="/shipping" element={<ShippingAddressScreen />}></Route>
+                <Route path="/payment" element={<PaymentMethodScreen />}></Route>
+                <Route path="/placeorder" element={<PlaceOrderScreen />}></Route>
                 <Route exact path="/" element={<HomeScreen />}></Route>
               </Routes>
             </main>
             <footer className="row center">
-                Sva autorska prava zadržava IT Shop
+                <i>Sva autorska prava zadržava IT Shop</i>
             </footer>
         </div>
     </BrowserRouter>

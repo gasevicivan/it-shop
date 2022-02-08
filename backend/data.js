@@ -47,7 +47,7 @@ const data = {
             brand: 'IT Shop',
             rating: 5,
             numReviews: 24,
-            description: '\n\nProcesor: Intel Core i3 10100 3,6 GHz \nMatična ploča: Intel H410M \nGrafika: Intel HD Graphics UHD 630 \nRam: 8 GB DDR4\n SSD: 240 GB \nKućište: Inter-Tech \nNapajanje: 500W \nGarancija: 2 godine',
+            description: '\n\nProcesor: Intel Core i3 10100 3,6 GHz \nMatična ploča: Intel H410M \nGrafika: Intel HD Graphics UHD 630 \nRam: 8 GB DDR4\nSSD: 240 GB \nKućište: Inter-Tech \nNapajanje: 500W \nGarancija: 2 godine',
         },   
         {
             name: 'Ryzen 9 3900X + MSI GeForce RTX 3060 12GB',
