@@ -17,9 +17,6 @@ export default function ShippingAddressScreen() {
             navigate('/signin');
         }
     }, [navigate, userInfo]);
-    /*if(!userInfo){
-        navigate('/signin');
-    }*/
     
     //ovo mi u konzoli pravi grešku pri prvom unosu
     const [fullName, setFullName] = useState(shippingAddress.fullName || '');
