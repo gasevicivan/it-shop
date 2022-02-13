@@ -29,7 +29,7 @@ export const detailsOrder = (orderId) => async (dispatch, getState) =>{
     try {
         const {data} = await Axios.get(`/api/orders/${orderId}`, {
             headers: {Authorization: `Bearer ${userInfo.token}`},
-        })
+        });
         dispatch({type: ORDER_DETAILS_SUCCESS, payload: data});
     } catch (error) {
         const message = error.response && error.response.data.message?
