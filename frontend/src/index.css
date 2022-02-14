@@ -145,6 +145,10 @@ button.block:hover{
   background-color: #20a020;
 }
 
+button.small{
+  font-size: 1.2rem;
+}
+
 select:hover{
   border: 0.1rem #404040 solid;
 }
@@ -264,6 +268,11 @@ p.descrip{
   background-color: #ffe0e0;
 }
 
+.alert-success{
+  color: #20a020;
+  background-color: #eeffe0;
+}
+
 /*Form*/
 
 .form{
@@ -317,4 +326,25 @@ p.descrip{
 .checkout-steps > div.active{
   border-top-color: #0787EA;
   color: #0787EA;
+}
+
+/*Table*/
+
+.table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table tbody tr:nth-of-type(odd){
+  background-color: #f4f4f4;
+}
+
+.table td, .table th{
+  text-align: center;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+
+.table button{
+  margin: 0 0.2rem;
 }

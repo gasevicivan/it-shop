@@ -4,6 +4,7 @@ import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 import { signout } from './actions/userActions';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
+import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
@@ -37,9 +38,14 @@ function App() {
                         {userInfo.name} <i className='fa fa-caret-down'></i>{' '}
                       </Link>
                       <ul className='dropdown-content'>
-                        <Link to='#signout' onClick={signoutHandler}>
-                          Odjavite se
-                        </Link>
+                        <li>
+                          <Link to='/orderhistory'>Narudžbe</Link>
+                        </li>
+                        <li>
+                          <Link to='#signout' onClick={signoutHandler}>
+                            Odjavite se
+                          </Link>
+                        </li>
                       </ul>
                     </div>
                   ) : (
@@ -64,6 +70,7 @@ function App() {
                 <Route path="/payment" element={<PaymentMethodScreen />}></Route>
                 <Route path="/placeorder" element={<PlaceOrderScreen />}></Route>
                 <Route path="/order/:id" element={<OrderScreen />}></Route>
+                <Route path="/orderhistory" element={<OrderHistoryScreen />}></Route>
                 <Route exact path="/" element={<HomeScreen />}></Route>
               </Routes>
             </main>
