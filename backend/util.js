@@ -21,7 +21,7 @@ export const isAuth = (req, res, next) => {
         const token = authorization.slice(7, authorization.length);
         jwt.verify(token, process.env.JWT_SECRET || 'somethingsecret', (err, decode) =>{
             if(err){
-                res.status(401).send({message: 'Nevažeći token'})
+                res.status(401).send({message: 'Nevažeći token'});
             }
             else{
                 req.user = decode;
@@ -31,6 +31,16 @@ export const isAuth = (req, res, next) => {
         );
     }
     else{
-        res.status(401).send({message: 'Nema tokena'})
+        res.status(401).send({message: 'Nema tokena'});
+    }
+}
+
+export const isAdmin = (req, res, next) =>{
+    if(req.user && req.user.isAdmin){
+        next();
+    }
+    else{
+        res.status(401).send({message: 'Neispravan administratorski token'});
+
     }
 }

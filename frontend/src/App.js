@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
 import { signout } from './actions/userActions';
+import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -9,6 +10,7 @@ import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ProductListScreen from './screens/ProductListScreen';
 import ProductScreen from './screens/ProductScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -56,12 +58,37 @@ function App() {
                   ) : (
                     <Link to="/signin">Prijavite se</Link>
                   )}
+                  {userInfo && userInfo.isAdmin && (
+                    <div className='dropdown'>
+                        <Link to="#admin">Administrator {' '} 
+                          <i className='fa fa caret-down'></i>
+                        </Link>
+                        <ul className='dropdown-content'>
+                           <li>
+                              <Link to="/dashboard">Dashboard</Link>
+                            </li>
+
+                            <li>
+                              <Link to="/productlist">Proizvodi</Link>
+                            </li>
+
+                            <li>
+                              <Link to="/orderlist">Narudžbe</Link>
+                            </li>
+
+                            <li>
+                              <Link to="/userlist">Korisnici</Link>
+                            </li>
+                        </ul>
+                    </div>
+                  )}
+
                   <Link to="/cart">
                       Korpa
                       {cartItems.length > 0 && (
                         <span className='badge'>{cartItems.length}</span>
                       )}
-                  </Link>   
+                  </Link> 
                 </div>
             </header>
             <main>
@@ -77,6 +104,7 @@ function App() {
                 <Route path="/order/:id" element={<OrderScreen />}></Route>
                 <Route path="/orderhistory" element={<OrderHistoryScreen />}></Route>
                 <Route path="/profile" element={<PrivateRoute><ProfileScreen /></PrivateRoute>}></Route>
+                <Route path="/productlist" element={<AdminRoute><ProductListScreen /></AdminRoute>}></Route>
                 <Route exact path="/" element={<HomeScreen />}></Route>
               </Routes>
             </main>

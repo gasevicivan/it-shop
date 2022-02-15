@@ -10,12 +10,7 @@ export default function SigninScreen() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    //let location = useLocation();
-    
-    /*const redirect = location.search
-        ? location.search.split('?')[1]
-        : '/';*/
-    
+   
     const { search } = useLocation();
     const redirectInUrl = new URLSearchParams(search).get('redirect');
     const redirect = redirectInUrl ? redirectInUrl : '/';
@@ -46,13 +41,13 @@ export default function SigninScreen() {
                 <div>
                     <label htmlFor='email'>Email</label>
                     <input type='email' id='email' placeholder='Unesite email' required
-                        onChange={ e => setEmail(e.target.value)}>
+                        onChange={ (e) => setEmail(e.target.value)}>
                     </input>
                 </div>
                 <div>
                     <label htmlFor='password'>Lozinka</label>
                     <input type='password' id='password' placeholder='Unesite lozinku' required
-                        onChange={ e => setPassword(e.target.value)}>
+                        onChange={ (e) => setPassword(e.target.value)}>
                     </input>
                 </div>
                 <div>
