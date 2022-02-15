@@ -29,7 +29,7 @@ export default function RegisterScreen() {
     const submitHandler = (e) =>{
         e.preventDefault();
         if(password !== confirmPassword){
-            alert('Lozinke se razlikuju. Morate unijeti iste lozinke.');
+            alert('Lozinke se razlikuju! Morate unijeti iste lozinke.');
         }
         else{
            dispatch(register(name, email, password)); 
