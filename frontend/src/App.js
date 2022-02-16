@@ -10,6 +10,7 @@ import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
+import ProductEditScreen from './screens/ProductEditScreen';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductScreen from './screens/ProductScreen';
 import ProfileScreen from './screens/ProfileScreen';
@@ -96,6 +97,7 @@ function App() {
                 <Route path="/cart" element={<CartScreen />}></Route>
                 <Route path="/cart/:id" element={<CartScreen />}></Route>
                 <Route path="/product/:id" element={<ProductScreen />}></Route>
+                <Route path="/product/:id/edit" element={<ProductEditScreen />}></Route>
                 <Route path="/signin" element={<SigninScreen />}></Route>
                 <Route path="/register" element={<RegisterScreen />}></Route>
                 <Route path="/shipping" element={<ShippingAddressScreen />}></Route>
