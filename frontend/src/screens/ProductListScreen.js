@@ -46,9 +46,10 @@ export default function ProductListScreen() {
     return (
         <div>
             <div className='row'>
-                <h1>Proizvodi</h1>
+                <label></label>
+                <center><h1>PROIZVODI</h1></center>
                 <button type='button' className='primary' onClick={createHandler}>
-                    Dodaj proizvod
+                        Dodaj proizvod
                 </button>
             </div>
 
@@ -82,7 +83,6 @@ export default function ProductListScreen() {
                     <td>{product.category}</td>
                     <td>{product.brand}</td>
                     <td>
-
                         <button type="button" className="small"
                             onClick={() =>navigate(`/product/${product._id}/edit`)}>
                             Izmijeni

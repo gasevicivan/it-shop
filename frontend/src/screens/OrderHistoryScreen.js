@@ -19,7 +19,7 @@ export default function OrderHistoryScreen() {
 
     return (
         <div>
-            <h1>Istorija narudžbi</h1>
+            <center><h1>ISTORIJA NARUDŽBI</h1></center>
             {loading? (<LoadingBox></LoadingBox>):
             error? (<MessageBox variant='danger'>{error}</MessageBox>)
             : 
@@ -32,7 +32,7 @@ export default function OrderHistoryScreen() {
                             <th>UKUPNO</th>
                             <th>PLAĆENO</th>
                             <th>DOSTAVLJENO</th>
-                            <th>DETALJI NARUDŽBE</th>
+                            <th>OPCIJE</th>
                         </tr>
                     </thead>
                     <tbody>

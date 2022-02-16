@@ -7,6 +7,7 @@ import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
 import HomeScreen from './screens/HomeScreen';
 import OrderHistoryScreen from './screens/OrderHistoryScreen';
+import OrderListScreen from './screens/OrderListScreen';
 import OrderScreen from './screens/OrderScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
@@ -107,6 +108,7 @@ function App() {
                 <Route path="/orderhistory" element={<OrderHistoryScreen />}></Route>
                 <Route path="/profile" element={<PrivateRoute><ProfileScreen /></PrivateRoute>}></Route>
                 <Route path="/productlist" element={<AdminRoute><ProductListScreen /></AdminRoute>}></Route>
+                <Route path="/orderlist" element={<AdminRoute><OrderListScreen /></AdminRoute>}></Route>
                 <Route exact path="/" element={<HomeScreen />}></Route>
               </Routes>
             </main>

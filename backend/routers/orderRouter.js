@@ -1,12 +1,17 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModels.js";
-import { isAuth } from "../utils.js";
+import { isAdmin, isAuth } from "../utils.js";
 
 const orderRouter = express.Router();
 
 orderRouter.get('/mine', isAuth, expressAsyncHandler(async (req, res) =>{
     const orders = await Order.find({user: req.user._id});
+    res.send(orders);
+}))
+
+orderRouter.get('/', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>{
+    const orders = await Order.find({}).populate('user', 'name');
     res.send(orders);
 }))
 
@@ -55,6 +60,17 @@ orderRouter.put('/:id/pay', isAuth, expressAsyncHandler(async (req, res) =>{
         res.status(404).send({message: 'Narudžba nije pronađena'});
     }
     
+}))
+
+orderRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>{
+    const order = await Order.findById(req.params.id);
+    if(order){
+        const deleteOrder = await order.remove();
+        res.send({message: 'Narudžba uspješno obrisana', order: deleteOrder});
+    }
+    else{
+        res.status(404).send({message: 'Narudžba nije pronađena'});
+    }
 }))
 
 

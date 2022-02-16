@@ -45,7 +45,7 @@ export default function ProfileScreen() {
     <div>
         <form className='form' onSubmit={submitHandler}>
             <div>
-                <h1>Profil korisnika</h1>
+                <center><h1>VAŠ PROFIL</h1></center>
             </div>
             {
                 loading? (<LoadingBox></LoadingBox>)

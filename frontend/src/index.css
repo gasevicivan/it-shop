@@ -48,6 +48,7 @@ h1{
   font-size: 2rem;
   padding: 1rem 0;
   inline-size: 27rem;
+  text-align: center;
 }
 
 h2{
@@ -341,10 +342,15 @@ p.descrip{
 
 .table td, .table th{
   text-align: center;
-  border: 0.1rem solid #e4e4e4;
+  border: 0.1rem solid #e4e4e4f1;
   padding: 0.5rem;
 }
 
 .table button{
   margin: 0 0.2rem;
+}
+
+.table th{
+  background-color: #0787EA;
+  padding: 1.4rem;
 }
