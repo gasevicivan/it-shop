@@ -73,6 +73,20 @@ orderRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler(async(req, res) 
     }
 }))
 
+orderRouter.put('/:id/deliver', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>{
+    const order = await Order.findById(req.params.id);
+    if(order){
+        order.isDelivered = true;
+        order.deliveredAt = Date.now();
+
+        const updatedOrder = await order.save();
+        res.send({message: 'Narudžba uspješno dostavljena', order: updatedOrder});
+    }
+    else{
+        res.status(404).send({message: 'Narudžba nije pronađena'});
+    }
+}))
+
 
 
 export default orderRouter;
