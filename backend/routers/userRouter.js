@@ -3,7 +3,7 @@ import expressAsyncHandler from "express-async-handler";
 import bcrypt from 'bcryptjs';
 import data from "../data.js";
 import User from "../models/userModels.js";
-import { generateToken, isAuth } from "../utils.js";
+import { generateToken, isAdmin, isAuth } from "../utils.js";
 
 const userRouter = express.Router();
 
@@ -75,7 +75,41 @@ userRouter.put('/profile', isAuth, expressAsyncHandler(async(req, res) =>{
             token: generateToken(updatedUser),
         })
     }
-})
-);
+}));
+
+userRouter.get('/', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>{
+    const users = await User.find({});
+    res.send(users);
+}));
+
+userRouter.delete('/:id', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>{
+    const user = await User.findById(req.params.id);
+    if(user){
+        if(user.email === 'gasevic_ivan@yahoo.com'){
+            res.status(400).send({message: 'Ne možete izbrisati administratora'});
+            return;
+        }
+        const deleteUser = await user.remove();
+        res.send({message: 'Korisnik je uspješno obrisan', user: deleteUser});
+    }
+    else{
+        res.status(404).send({message: 'Korisnik nije pronađen'});
+    }
+    
+}));
+
+userRouter.put('/:id', isAuth, isAdmin, expressAsyncHandler(async(req, res) =>{
+    const user = await User.findById(req.params.id);
+    if(user){
+        user.name = req.body.name === user.name ? user.name : req.body.name;        
+        user.email = req.body.email || user.email;
+        user.isAdmin =  Boolean(req.body.isAdmin);
+        const updatedUser = await user.save();
+        res.send({message: 'Korisnički profil uspješno ažuriran', user: updatedUser});
+    }
+    else{
+        res.status(404).send({message: 'Korisnik nije pronađen'});
+    }
+}))
 
 export default userRouter;

@@ -17,11 +17,8 @@ export default function OrderListScreen() {
     const dispatch = useDispatch();
 
     useEffect( () =>{
-        if(successDelete){
-            dispatch({type: ORDER_DELETE_RESET});
-        }
-        
- 
+        dispatch({type: ORDER_DELETE_RESET});
+
         dispatch(listOrders());
     }, [dispatch, successDelete]);
 
