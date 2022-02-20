@@ -4,32 +4,59 @@ import Rating from "../components/Rating";
 import { useDispatch, useSelector } from "react-redux";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import { detailsProduct } from "../actions/productActions";
+import { createReview, detailsProduct } from "../actions/productActions";
+import { PRODUCT_REVIEW_CREATE_RESET } from "../constants/productConstants";
 
 function ProductScreen() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const {id} = useParams();
     const productId = id;
     const [qty, setQty] = useState(1);
     const productDetails = useSelector(state => state.productDetails);
     const {loading, error, product} = productDetails;
 
-    useEffect(() =>{
-        dispatch(detailsProduct(productId));
-    }, [dispatch, productId]);
+    const userSignin = useSelector((state) => state.userSignin);
+    const {userInfo} = userSignin;
 
-    let navigate = useNavigate();
+    const productReviewCreate = useSelector((state) => state.productReviewCreate);
+    const {loading: loadingReviewCreate, error: errorReviewCreate, success: successReviewCreate} = productReviewCreate;
+
+    const [rating, setRating] = useState(0);
+    const [comment, setComment] = useState('');
+
+
+    useEffect(() =>{
+        if(successReviewCreate){
+            window.alert('Recenzija uspješno postavljena');
+            setRating('');
+            setComment('');
+            dispatch({type: PRODUCT_REVIEW_CREATE_RESET});
+        }
+        dispatch(detailsProduct(productId));
+    }, [dispatch, productId, successReviewCreate]);
+
     
     const addToCartHandler = () =>{
         navigate(`/cart/${productId}?qty=${qty}`)
     };
+
+    const submitHandler = (e) =>{
+        e.preventDefault();
+        if(comment && rating){
+            dispatch(createReview(productId, {rating, comment, name: userInfo.name}))
+        }
+        else{
+            alert('Unesite komentar i ocjenu');
+        }
+    }
 
     return(
         <div>
             {loading? <LoadingBox></LoadingBox>
             :  error? 
                 <MessageBox variant="danger">{error}</MessageBox>
-            : 
+            : (
             <div>
                 <Link to="/">Vrati se nazad</Link>
                 <div className="row top">
@@ -94,15 +121,73 @@ function ProductScreen() {
                                         <button onClick={addToCartHandler} className="primary block">Dodaj u korpu</button>
                                     </li>
                                     </>
-                                     
                                 )}
-                               
                             </ul>
                         </div>
                     </div>
+                </div>
+
+                <div>
+                    <h3 id='reviews'>RECENZIJE</h3>
+                    {product.reviews.length === 0 && (<MessageBox>Nema recenzija</MessageBox>)}
+                    <ul>
+                        {product.reviews.map( (review) => (
+                            <li key={review._id}>
+                                <strong>{review.name}</strong>
+                                <Rating rating={review.rating} caption=' '></Rating>
+                                <p>{review.createdAt.substring(0, 10)}</p>
+                                <p>{review.comment}</p>
+                            </li>
+                        ))}
+                        <li>
+                            {userInfo ? (
+                                <form className="form" onSubmit={submitHandler}>
+                                    <div>
+                                        <center><h3>NAPIŠITE RECENZIJU</h3></center>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="rating">Ocjena</label>
+                                        <select id='rating' value={rating}
+                                            onChange={ (e) => setRating(e.target.value)}>
+                                                <option value="">Izaberite...</option>
+                                                <option value="1">1 - Loš</option>
+                                                <option value="2">2 - Zadovoljava</option>
+                                                <option value="3">3 - Dobar</option>
+                                                <option value="4">4 - Veoma dobar</option>
+                                                <option value="5">5 - Odličan</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label htmlFor="comment">Komentar</label>
+                                        <textarea id='comment' value={comment}
+                                            onChange={ (e) => setComment(e.target.value)}>
+                                        </textarea>
+                                    </div>
+
+                                    <div>
+                                        <label />
+                                        <button className="primary" type="submit">
+                                            Postavi recenziju
+                                        </button>
+                                    </div>
+
+                                    <div>
+                                        {loadingReviewCreate && <LoadingBox></LoadingBox>}
+                                        {errorReviewCreate && (<MessageBox variant='danger'>{errorReviewCreate}</MessageBox>)}
+                                    </div>
+                                </form>
+                            ) : (
+                                <MessageBox>
+                                    <Link to='/signin'>Ulogujte se</Link> da bi ostavili recenziju
+                                </MessageBox>
+                            
+                            )}
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        }
+        )}
         </div>
         
     )
