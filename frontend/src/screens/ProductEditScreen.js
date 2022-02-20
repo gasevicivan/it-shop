@@ -89,7 +89,7 @@ export default function ProductEditScreen() {
         <div>
             <form className='form' onSubmit={submitHandler}>
                 <div>
-                    <h1>DODAJ/IZMIJENI PROIZVOD</h1>
+                    <center><h1>DODAJ/IZMIJENI PROIZVOD</h1></center>
                 </div>
                 {loadingUpdate && (<LoadingBox></LoadingBox>)}
                 {errorUpdate && (<MessageBox variant='danger'>{errorUpdate}</MessageBox>)}

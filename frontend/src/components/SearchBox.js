@@ -12,7 +12,7 @@ export default function SearchBox() {
     return (
         <form className='search' onSubmit={submitHandler}>
             <div className='row'>
-                <input type='text' name='q' id='q' 
+                <input type='text' name='q' id='q' placeholder='Pretraga...'
                     onChange={(e) => setName(e.target.value)}>
                 </input>
                 <button className='primary' type='submit'>
