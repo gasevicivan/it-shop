@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://127.0.0.1/it-shop');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1/it-shop');
 
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
