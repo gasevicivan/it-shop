@@ -33,5 +33,10 @@
     "mongoose": "^6.1.6",
     "multer": "^1.4.4",
     "react-scripts": "^5.0.0"
+  },
+
+  "engines": {
+    "node": "^17.2.0",
+    "npm": "^8.2.0"
   }
 }
