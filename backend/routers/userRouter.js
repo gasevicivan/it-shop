@@ -27,11 +27,10 @@ userRouter.post('/signin', expressAsyncHandler(async(req, res) => {
                 token: generateToken(user),
             })
             return;
-        }
-        else{
-            res.status(401).send({ message: 'Nevažeći email ili šifra'});
-        }
+        } 
     }
+    res.status(401).send({ message: 'Nevažeći email ili šifra'});
+
 }))
 
 userRouter.post('/register', expressAsyncHandler(async(req, res) =>{

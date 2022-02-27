@@ -185,8 +185,6 @@ export default function OrderScreen() {
                     </div>
                 </div>
             </div>
-
-            
         </div>
     )
 }

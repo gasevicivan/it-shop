@@ -33,7 +33,7 @@ header{
 
 main{
   grid-area: main;
-  padding: 10px;
+  padding: 1rem;
   background-color: #fbfff7;
 }
 
@@ -98,7 +98,7 @@ ul.categories a:hover
 
 header a{
   color: #FBFBFB;
-  padding: 10px;
+  padding: 1rem;
 }
 
 .badge{
@@ -112,7 +112,7 @@ header a{
 }
 
 a.eName{
-  font-size: 36px;
+  font-size: 3.6rem;
   font-weight: bold;
   color: #FBFBFB;
 }

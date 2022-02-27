@@ -18,7 +18,6 @@ export default function ShippingAddressScreen() {
         }
     }, [navigate, userInfo]);
     
-    //ovo mi u konzoli pravi grešku pri prvom unosu
     const [fullName, setFullName] = useState(shippingAddress.fullName || '');
     const [address, setAddress] = useState(shippingAddress.address) || '';
     const [city, setCity] = useState(shippingAddress.city || '');
@@ -37,7 +36,7 @@ export default function ShippingAddressScreen() {
             <CheckoutSteps step1 step2></CheckoutSteps>
             <form className='form' onSubmit={submitHandler}>
                 <div>
-                    <h1>Podaci za dostavu</h1>
+                    <center><h1>PODACI ZA DOSTAVU</h1></center>
                 </div>
                 <div>
                     <label htmlFor='fullName'>Ime i prezime</label>

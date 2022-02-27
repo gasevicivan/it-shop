@@ -7,8 +7,7 @@ import MessageBox from '../components/MessageBox';
 export default function CartScreen() {
     const {id} = useParams();
     const productId = id;
-    /*const {location} = useLocation();
-    const qty = location.search? Number(location.search.split('=')[1]): 1;*/
+    
     const { search } = useLocation();
     const qtyInUrl = new URLSearchParams(search).get('qty');
     const qty = qtyInUrl ? Number(qtyInUrl) : 1;

@@ -13,11 +13,6 @@ export default function RegisterScreen() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    /*let location = useLocation();
-    const redirect = location.search
-        ? location.search.split('?')[1]
-        : '/';*/
-
     const { search } = useLocation();
     const redirectInUrl = new URLSearchParams(search).get('redirect');
     const redirect = redirectInUrl ? redirectInUrl : '/';
