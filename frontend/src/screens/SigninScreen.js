@@ -34,7 +34,7 @@ export default function SigninScreen() {
         <div>
             <form className='form' onSubmit={submitHandler}>
                 <div>
-                    <h1>Prijavite se na korisnički profil</h1>
+                    <center><h1>Prijavi se na korisnički profil</h1></center>
                 </div>
                 {loading && <LoadingBox></LoadingBox>}
                 {error && <MessageBox variant='danger'>{error}</MessageBox>}
@@ -57,7 +57,7 @@ export default function SigninScreen() {
                 <div>
                     <label />
                     <div>
-                        <Link to={`/register?redirect=${redirect}`}>Niste kreirali korisnički profil? Kreirajte ovdje.</Link>
+                        <Link to={`/register?redirect=${redirect}`}><center>Niste kreirali korisnički profil? Kreirajte ovdje.</center></Link>
                     </div>
                 </div>
             </form>

@@ -43,7 +43,7 @@ export default function RegisterScreen() {
         <div>
             <form className='form' onSubmit={submitHandler}>
                 <div>
-                    <h1>Kreiraj korisnički profil</h1>
+                    <center><h1>KREIRAJ KORISNIČKI PROFIL</h1></center>
                 </div>
                 {loading && <LoadingBox></LoadingBox>}
                 {error && <MessageBox variant='danger'>{error}</MessageBox>}
@@ -78,7 +78,7 @@ export default function RegisterScreen() {
                 <div>
                     <label />
                     <div>
-                        <Link to={`/signin?redirect=${redirect}`}>Već imate korisnički profil? Prijavite se.</Link>
+                        <Link to={`/signin?redirect=${redirect}`}><center>Već imate korisnički profil? Prijavite se.</center></Link>
                     </div>
                 </div>
             </form>

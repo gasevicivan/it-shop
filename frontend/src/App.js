@@ -84,7 +84,7 @@ function App() {
                       </ul>
                     </div>
                   ) : (
-                    <Link to="/signin">Prijavite se</Link>
+                    <Link to="/signin"><b>Prijavite se</b></Link>
                   )}
                   {userInfo && userInfo.isAdmin && (
                     <div className='dropdown'>
