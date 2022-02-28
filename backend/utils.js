@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 
 export const generateToken = (user) =>{
+    console.log("token",user);
     return jwt.sign(
         {
             _id: user.id,
@@ -8,7 +9,7 @@ export const generateToken = (user) =>{
             email: user.email,
             isAdmin: user.isAdmin,
         },
-        process.env.JWT_SECRET || 'something secret',
+        process.env.JWT_SECRET || 'somethingsecret',
         {
             expiresIn: '30d',
         }
@@ -17,6 +18,7 @@ export const generateToken = (user) =>{
 
 export const isAuth = (req, res, next) => {
     const authorization = req.headers.authorization;
+    console.log("jeste",authorization);
     if(authorization){
         const token = authorization.slice(7, authorization.length);
         console.log("ovde",token);
