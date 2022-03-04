@@ -70,7 +70,7 @@ export default function ProductListScreen() {
                     <th>CIJENA</th>
                     <th>KATEGORIJA</th>
                     <th>PROIZVOĐAČ</th>
-                    <th>IZMJENE</th>
+                    <th>OPCIJE</th>
                 </tr>
                 </thead>
 
