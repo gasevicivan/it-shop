@@ -390,7 +390,6 @@ p.descrip{
 }
 
 .search input {
-  width: 25rem;
   border-radius: 0.5rem 0 0 0.5rem;
   border-right: none;
   margin-left: 0.5rem;
